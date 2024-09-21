@@ -1,1 +1,2 @@
 # CPTC-Resources
+This repository contains all the notes we have taken in reguards to Linux and Windows, as well as the scripts we will be using for the CPTC competition. We have added documentation for the tools we plan to use, please feel free to use them!
