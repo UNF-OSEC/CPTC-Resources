@@ -11,8 +11,12 @@
             "id": "6ada728d376ecaf0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Linux Notes/Users & Privileges.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Linux Notes/Users & Privileges.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Linux Notes/Users & Privileges.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Linux Notes/Users & Privileges.md"
+              }
             }
           }
         ]
@@ -140,13 +148,18 @@
   },
   "active": "6ada728d376ecaf0",
   "lastOpenFiles": [
-    "Linux Notes/Untitled.md",
     "Linux Notes/Viewing, Creating, & Editing Files.md",
+    "Untitled.md",
     "Linux Notes/Users & Privileges.md",
     "Linux Notes/Scripting with bash.md",
     "Linux Notes/Navigating the File System.md",
-    "Linux Notes/Installing gedit.md",
     "Linux Notes/Installing & Updating Tools.md",
+    "Linux Notes/Canvas Assignments/Week 1/Edgar's Answers.md",
+    "Linux Notes/Canvas Assignments/Untitled.md",
+    "Linux Notes/Canvas Assignments/Week 1",
+    "Linux Notes/Canvas Assignments",
+    "Linux Notes/Untitled.md",
+    "Linux Notes/Installing gedit.md",
     "Linux Notes/Common Network Commands.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",
     "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
