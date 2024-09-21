@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
+                "file": "Linux Notes/Untitled.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
+                "file": "Linux Notes/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
+                "file": "Linux Notes/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md"
+                "file": "Linux Notes/Untitled.md"
               }
             }
           }
@@ -146,8 +146,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ce7b4acc38e36cec",
+  "active": "6ada728d376ecaf0",
   "lastOpenFiles": [
+    "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
+    "Linux Notes/Untitled.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Users & Privileges.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Navigating the File System.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Viewing, Creating, & Editing Files.md",
@@ -159,12 +161,10 @@
     "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234728.png",
     "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234259.png",
     "Linux Notes/Ethical-Hacking-Notes/Images",
-    "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
     "Linux Notes/Ethical-Hacking-Notes",
     "Linux Notes/Ethical Hacking Notes",
     "README.md",
     "Windows Notes/Untitled.md",
-    "Linux Notes/Untitled.md",
     "Scripts/Untitled.md",
     "Scripts",
     "Windows Notes",
