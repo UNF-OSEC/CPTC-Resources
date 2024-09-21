@@ -4,47 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "c613a66c7d3200a4",
+        "id": "b86a08a4e9737784",
         "type": "tabs",
         "children": [
           {
-            "id": "c5ae88db613c70f7",
+            "id": "6ada728d376ecaf0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux Notes/Untitled.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8ff37bf6910dbbd5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Windows Notes/Untitled.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0673d805a1c63c4a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
+                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md"
               }
             }
           }
@@ -171,12 +146,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0673d805a1c63c4a",
+  "active": "ce7b4acc38e36cec",
   "lastOpenFiles": [
-    "Scripts/Untitled.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Users & Privileges.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Navigating the File System.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Viewing, Creating, & Editing Files.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Scripting with bash.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Installing gedit.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Common Network Commands.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes",
+    "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234728.png",
+    "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234259.png",
+    "Linux Notes/Ethical-Hacking-Notes/Images",
+    "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
+    "Linux Notes/Ethical-Hacking-Notes",
+    "Linux Notes/Ethical Hacking Notes",
+    "README.md",
     "Windows Notes/Untitled.md",
-    "Scripts",
     "Linux Notes/Untitled.md",
+    "Scripts/Untitled.md",
+    "Scripts",
     "Windows Notes",
     "Linux Notes"
   ]
