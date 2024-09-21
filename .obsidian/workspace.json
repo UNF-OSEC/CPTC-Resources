@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6e21e9548d14d6ad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux Notes/Untitled.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -146,15 +159,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6ada728d376ecaf0",
+  "active": "ce7b4acc38e36cec",
   "lastOpenFiles": [
-    "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
+    "Linux Notes/Viewing, Creating, & Editing Files.md",
+    "Linux Notes/Users & Privileges.md",
+    "Linux Notes/Scripting with bash.md",
+    "Linux Notes/Navigating the File System.md",
+    "Linux Notes/Installing gedit.md",
+    "Linux Notes/Installing & Updating Tools.md",
+    "Linux Notes/Common Network Commands.md",
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",
     "Linux Notes/Untitled.md",
+    "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Users & Privileges.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Navigating the File System.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Viewing, Creating, & Editing Files.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Scripting with bash.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Installing gedit.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Common Network Commands.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes",
