@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b86a08a4e9737784",
+        "id": "47a4d34643ffbe1d",
         "type": "tabs",
         "children": [
           {
-            "id": "6ada728d376ecaf0",
+            "id": "5465ccb489761047",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux Notes/Users & Privileges.md",
+                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux Notes/Users & Privileges.md",
+                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linux Notes/Users & Privileges.md",
+                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Linux Notes/Users & Privileges.md"
+                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md"
               }
             }
           }
@@ -146,40 +146,52 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6ada728d376ecaf0",
+  "active": "5465ccb489761047",
   "lastOpenFiles": [
-    "Linux Notes/Viewing, Creating, & Editing Files.md",
+    "Screenshots/Pasted image 20240922004241.png",
+    "Pasted image 20240922004239.png",
+    "README.md",
+    "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
+    "Screenshots/Pasted image 20240922004058.png",
+    "Screenshots/Pasted image 20240922004041.png",
+    "Screenshots/Pasted image 20240922003802.png",
+    "CPTC Notes/Web Apps/Untitled.md",
+    "CPTC Notes/Hacking Linux/Untitled.md",
+    "CPTC Notes/Web Apps",
+    "CPTC Notes/Untitled.md",
+    "CPTC Notes/Consulting/Untitled.md",
+    "CPTC Notes/Hacking Windows/Untitled.md",
+    "CPTC Notes/Consulting",
+    "CPTC Notes/Hacking Linux",
+    "CPTC Notes/Hacking Windows",
+    "Screenshots/Pasted image 20240922002425.png",
+    "CPTC Notes/What is CPTC/Edgar's Notes.md",
+    "().md",
+    "Screenshots/Pasted image 20240921235308.png",
+    "Screenshots",
+    "Screenshots/Pasted image 20240921234646.png",
+    "CPTC Notes/What is CPTC",
+    "Linux Notes/Ethical Hacking Video/Viewing, Creating, & Editing Files.md",
+    "CPTC Notes/Intro to Pentesting",
+    "CPTC Notes",
+    "Linux Notes/Ethical Hacking Video/Users & Privileges.md",
+    "Linux Notes/Ethical Hacking Video",
     "Untitled.md",
-    "Linux Notes/Users & Privileges.md",
-    "Linux Notes/Scripting with bash.md",
-    "Linux Notes/Navigating the File System.md",
-    "Linux Notes/Installing & Updating Tools.md",
+    "Linux Notes/Ethical Hacking Video/Scripting with bash.md",
+    "Linux Notes/Ethical Hacking Video/Navigating the File System.md",
+    "Linux Notes/Ethical Hacking Video/Installing & Updating Tools.md",
     "Linux Notes/Canvas Assignments/Week 1/Edgar's Answers.md",
     "Linux Notes/Canvas Assignments/Untitled.md",
     "Linux Notes/Canvas Assignments/Week 1",
-    "Linux Notes/Canvas Assignments",
     "Linux Notes/Untitled.md",
-    "Linux Notes/Installing gedit.md",
-    "Linux Notes/Common Network Commands.md",
+    "Linux Notes/Ethical Hacking Video/Installing gedit.md",
+    "Linux Notes/Ethical Hacking Video/Common Network Commands.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",
     "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Users & Privileges.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Navigating the File System.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Viewing, Creating, & Editing Files.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Scripting with bash.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Installing gedit.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Common Network Commands.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes",
     "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234728.png",
-    "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234259.png",
-    "Linux Notes/Ethical-Hacking-Notes/Images",
-    "Linux Notes/Ethical-Hacking-Notes",
-    "Linux Notes/Ethical Hacking Notes",
-    "README.md",
-    "Windows Notes/Untitled.md",
-    "Scripts/Untitled.md",
-    "Scripts",
-    "Windows Notes",
-    "Linux Notes"
+    "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234259.png"
   ]
 }
