@@ -4,18 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "47a4d34643ffbe1d",
+        "id": "f82a1378998e7db0",
         "type": "tabs",
         "children": [
           {
-            "id": "5465ccb489761047",
+            "id": "a092e4d860f8d0a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+                "file": "Linux Notes/Web Application Penetration Test.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+                "file": "Linux Notes/Web Application Penetration Test.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+                "file": "Linux Notes/Web Application Penetration Test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md"
+                "file": "Linux Notes/Web Application Penetration Test.md"
               }
             }
           }
@@ -148,16 +148,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5465ccb489761047",
+  "active": "a092e4d860f8d0a3",
   "lastOpenFiles": [
-    "Screenshots/Pasted image 20240925131802.png",
+    "Pasted image 20240925170924.png",
+    "Pasted image 20240925170143.png",
+    "Pasted image 20240925165310.png",
+    "Pasted image 20240925164143.png",
+    "Pasted image 20240925164026.png",
     "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+    "Linux Notes/Web Application Penetration Test.md",
+    "Linux Notes/Untitled",
+    "CPTC Notes/General Knowledge/What is CPTC, Intro to Pen - Edgar.md",
+    "().md",
+    "Screenshots/Pasted image 20240925131802.png",
     "Screenshots/Pasted image 20240925140711.png",
     "Screenshots/Pasted image 20240925140655.png",
     "Screenshots/Pasted image 20240925140615.png",
     "Screenshots/Pasted image 20240925131809.png",
     "Screenshots/Pasted image 20240925131040.png",
-    "CPTC Notes/General Knowledge/What is CPTC, Intro to Pen - Edgar.md",
     "CPTC Notes/Web Apps/Untitled.md",
     "CPTC Notes/Hacking Windows/Untitled.md",
     "README.md",
@@ -166,29 +174,22 @@
     "CPTC Notes/Hacking Linux/Getting_Started_Module_Cheat_Sheet.pdf",
     "CPTC Notes/Consulting/Untitled.md",
     "CPTC Notes/Hacking Linux/Untitled.md",
-    "Screenshots/Pasted image 20240922004241.png",
-    "Pasted image 20240922004239.png",
-    "Screenshots/Pasted image 20240922004058.png",
-    "Screenshots/Pasted image 20240922004041.png",
     "CPTC Notes/Web Apps",
     "CPTC Notes/Untitled.md",
     "CPTC Notes/Consulting",
     "CPTC Notes/Hacking Linux",
     "CPTC Notes/Hacking Windows",
-    "().md",
     "Screenshots",
     "Linux Notes/Ethical Hacking Video/Viewing, Creating, & Editing Files.md",
     "CPTC Notes/General Knoledgw",
     "CPTC Notes",
     "Linux Notes/Ethical Hacking Video/Users & Privileges.md",
-    "Linux Notes/Ethical Hacking Video",
     "Untitled.md",
     "Linux Notes/Ethical Hacking Video/Scripting with bash.md",
     "Linux Notes/Ethical Hacking Video/Navigating the File System.md",
     "Linux Notes/Ethical Hacking Video/Installing & Updating Tools.md",
     "Linux Notes/Canvas Assignments/Week 1/Edgar's Answers.md",
     "Linux Notes/Canvas Assignments/Untitled.md",
-    "Linux Notes/Untitled.md",
     "Linux Notes/Ethical Hacking Video/Installing gedit.md",
     "Linux Notes/Ethical Hacking Video/Common Network Commands.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",

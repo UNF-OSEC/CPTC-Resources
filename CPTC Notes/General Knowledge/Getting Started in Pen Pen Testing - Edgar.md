@@ -211,3 +211,116 @@ IP: 10.10.x.2
 Pen Testing is complex and will have a lot of vocabulary all over the place. Here are the most common
 
 ## What is a Shell?
+**Shell:** A program that takes input from the user via the keyboard and passes these commands to the operating system to preform a specific function.
+- When computers were first created, the only thing that was available was the Shell.
+- Now we have things called graphic user interfaces (GUIs), which provide graphics like what you are using right now
+
+### Bash (Bourne Again Shell)
+Most linux systems use a program called **Bash (Bourne Again Shell)**, a shell program to interact with the operating system.  
+
+**Bash**: An enhanced version of **sh**, the Unix systems' origin shell program
+
+Other Shells
+- Zsh
+- Tcsh
+- Ksh
+- Fish shell
+- etc...
+
+"Getting a shell" on a box(system) means the target host has been exploited. It can happen by:
+- Exploiting a web application 
+- Finding a network/service vulnerability 
+- obtaining credentials           
+
+### Types of Shell Connections
+
+
+| Shell Type    | Description                                                                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Reverse Shell | Initiate a connection back to a "listener" on our attack box                                                                                  |
+| Bind Shell    | "Binds" to a specific port on the target host and waits for a connection from our attack box                                                  |
+| Web Shell     | Runs operating system commands via the web browser typically not interactive or semi-interactive. It can also be used to run single commands. |
+
+*Different Shells have different uses at different times. The program to get access to the Shell can be written in many languages.*
+
+## What is a Port?
+Ports can be thought of as a window or door on a house. (House is a remote system). 
+- If a window or door is left open, anyone can get unauthorized access to a home.
+**Ports**: Virtual points where network connections begin and end. 
+- Software-based 
+- managed by the host operating system 
+- specified process or service and allows computer to different traffic types. (SSH Traffic flows to a different port than Web traffic)
+
+### Port Numbers
+Ports are assigned numbers, and there are many standardized across all network-connected devices. (though a service can be configured to run on a non-standard port)
+- HTTP messages (website traffic) typically go to port 80, while HTTPS goes to 443.
+- Allows us to access specific services or applications running on target devices. 
+- Ports help computers understand how to handle the various types of data they receive
+
+### TPC and UDP
+There are two categories of ports, **Transmission Control Protocol** (TCP), and **User Datagram Protocol** (UDP).
+
+**TCP**
+- Connection-oriented (connection must be established before data can be sent)
+- Server must be in a listening state awaiting connection requests from clients
+**UDP**
+- Utilizes a connection-less communication model
+- No "handshake" and therefore introduces a certain amount of reliability since there is no guarantee of data delivery
+
+### UDP vs. TCP
+
+
+| UDP                                                                                                                      | TCP                                     |
+| ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
+| Useful when error correction/checking is either not needed or is handled by the application itself                       |                                         |
+| Useful for time-sensitive tasks since dropping packets is faster than waiting for delayed packets due to retransimission | Significantly affect a real-time system |
+There are **65,535** TPC ports and 65,535 different UDP ports, each denoted by a number.
+
+### Well-known TPC & UDP Ports
+
+
+| Port(s)     | Protocol       |
+| ----------- | -------------- |
+| 20/21 (TCP) | FTP            |
+| 22 (TCP)    | SSH            |
+| 23 (TCP)    | Telnet         |
+| 25          | SMTP           |
+| 80          | HTTP           |
+| 161         | SNMP           |
+| 389         | LDAP           |
+| 443         | SSL/TLS(HTTPS) |
+| 445         | SMB            |
+| 3389        | RDP            |
+*It is very important that you learn the ports by memorization. It will take time, but it will be worth it.*
+
+## What is a Web Server
+**Web Server**: An application that runs on the back-end server, which handles all HTTP traffic from the client-side browser, routes it to the requests destination pages, and finally responds to the client-side browser.
+ 
+**Common Ports**: 80(HTTP) or 443(HTTPS)
+- Connects end-users to various parts of the web application and handles their various responses
+
+### Web Servers Attack Surface
+Web servers usually are open for the public, and so if they have any vulnerabilities, they may get their back-end server compromised. 
+- Vast attack surface 
+- High-value target
+- [OWASP](https://owasp.org/www-project-top-ten/)
+
+### Web Top Vulnerabilities
+
+| Category                                   | Description                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Broken Access Control                      | Restrictions are not appropriately implemented to prevent users accounts, viewing sensitive data, accessing unauthorized functionality, modifying data, etc...                                                                                                                                                       |
+| Cryptographic Failures                     | Failures related to cryptography which often leads to sensitive data exposure or system compromise                                                                                                                                                                                                                   |
+| Injection                                  | User-supplied data is not validated, filtered, or sanitized by the application. Examples: SQL injection, command injection, LDAP injection, etc...                                                                                                                                                                   |
+| Insecure Design                            | These issues happen when the application is not designed with security in mind                                                                                                                                                                                                                                       |
+| Security Misconfiguration                  | missing appropriate security hardening across any part of the application stack, insecure default configs, open cloud storage, verbose error messages which disclose too much information                                                                                                                            |
+| Vulnerable and Outdated Components         | Using components (both client-side and server-side) that are vulnerable, unsupported, or out of date                                                                                                                                                                                                                 |
+| Identification and Authentication Failures | Authentication-related attacks that target users identify, authentication, and session management                                                                                                                                                                                                                    |
+| Software and Data Integrity Failures       | Software and data integrity failures relate to code and infrastructure that does not protect against integrity violations. Example: Application plugins, libraries, modules form untrusted sources, repos, and content delivery networks (CDNs)                                                                      |
+| Security Logging and Monitoring Faliures   | Help detect, escalate, and respond to active breaches. Without logging and monitoring, breaches cannot be detected                                                                                                                                                                                                   |
+| Server-Side Request Forgery                | SSRF flaws occur whenever a web application is fetching a remote resource without validating the user-supplied URL. Alloiws an attack to coerce the application to send a crafted request to an unexspected destination even when protected by a firewall, VPN, or another type of network access control list (ACL) |
+
+*It is important to learn of the different web vulnerabilities*
+
+# Basic Tools
+
