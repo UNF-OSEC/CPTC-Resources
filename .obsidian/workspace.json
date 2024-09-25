@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tips",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7d2c004549feec4c",
@@ -85,9 +86,9 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
                 "collapseAll": false,
-                "extraContext": false,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,11 +126,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CPTC Notes/Intro to Pentesting/Edgar's Notes.md"
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -148,32 +150,35 @@
   },
   "active": "5465ccb489761047",
   "lastOpenFiles": [
-    "CPTC Notes/What is CPTC/Edgar's Notes.md",
-    "CPTC Notes/What is CPTC",
+    "Screenshots/Pasted image 20240925131802.png",
+    "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+    "Screenshots/Pasted image 20240925140711.png",
+    "Screenshots/Pasted image 20240925140655.png",
+    "Screenshots/Pasted image 20240925140615.png",
+    "Screenshots/Pasted image 20240925131809.png",
+    "Screenshots/Pasted image 20240925131040.png",
+    "CPTC Notes/General Knowledge/What is CPTC, Intro to Pen - Edgar.md",
+    "CPTC Notes/Web Apps/Untitled.md",
+    "CPTC Notes/Hacking Windows/Untitled.md",
     "README.md",
-    "CPTC Notes/General/Getting_Started_Module_Cheat_Sheet.pdf",
+    "CPTC Notes/General Knoledgw/Edgar's Notes.md",
+    "CPTC Notes/General Knowledge",
+    "CPTC Notes/Hacking Linux/Getting_Started_Module_Cheat_Sheet.pdf",
     "CPTC Notes/Consulting/Untitled.md",
     "CPTC Notes/Hacking Linux/Untitled.md",
-    "CPTC Notes/Intro to Pentesting/Edgar's Notes.md",
     "Screenshots/Pasted image 20240922004241.png",
     "Pasted image 20240922004239.png",
     "Screenshots/Pasted image 20240922004058.png",
     "Screenshots/Pasted image 20240922004041.png",
-    "Screenshots/Pasted image 20240922003802.png",
-    "CPTC Notes/Web Apps/Untitled.md",
     "CPTC Notes/Web Apps",
     "CPTC Notes/Untitled.md",
-    "CPTC Notes/Hacking Windows/Untitled.md",
     "CPTC Notes/Consulting",
     "CPTC Notes/Hacking Linux",
     "CPTC Notes/Hacking Windows",
-    "Screenshots/Pasted image 20240922002425.png",
     "().md",
-    "Screenshots/Pasted image 20240921235308.png",
     "Screenshots",
-    "Screenshots/Pasted image 20240921234646.png",
     "Linux Notes/Ethical Hacking Video/Viewing, Creating, & Editing Files.md",
-    "CPTC Notes/Intro to Pentesting",
+    "CPTC Notes/General Knoledgw",
     "CPTC Notes",
     "Linux Notes/Ethical Hacking Video/Users & Privileges.md",
     "Linux Notes/Ethical Hacking Video",
@@ -189,9 +194,6 @@
     "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",
     "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Users & Privileges.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Navigating the File System.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Viewing, Creating, & Editing Files.md",
-    "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234728.png",
-    "Linux Notes/Ethical-Hacking-Notes/Images/Pasted image 20240919234259.png"
+    "Linux Notes/Ethical-Hacking-Notes/Notes/Navigating the File System.md"
   ]
 }
