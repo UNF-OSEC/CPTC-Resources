@@ -11,12 +11,8 @@
             "id": "a092e4d860f8d0a3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux Notes/Web Application Penetration Test.md",
-                "mode": "source",
-                "source": true
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -48,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tips",
+                "query": "nmap",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,11 +61,13 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7d2c004549feec4c",
@@ -85,7 +83,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux Notes/Web Application Penetration Test.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -102,7 +99,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linux Notes/Web Application Penetration Test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +120,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Linux Notes/Web Application Penetration Test.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -149,22 +143,25 @@
   },
   "active": "a092e4d860f8d0a3",
   "lastOpenFiles": [
+    "Untitled 1.canvas",
+    "2024-09-26.md",
+    "Untitled.canvas",
+    "Notes/Linux Notes/Web Application Penetration Test.md",
+    "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+    "CPTC Notes/General Knowledge/What is CPTC, Intro to Pen - Edgar.md",
+    "Linux Notes/Web Application Penetration Test.md",
     "Pasted image 20240925170924.png",
     "Pasted image 20240925170143.png",
     "Pasted image 20240925165310.png",
     "Pasted image 20240925164143.png",
     "Pasted image 20240925164026.png",
-    "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
-    "Linux Notes/Web Application Penetration Test.md",
     "Linux Notes/Untitled",
-    "CPTC Notes/General Knowledge/What is CPTC, Intro to Pen - Edgar.md",
     "().md",
     "Screenshots/Pasted image 20240925131802.png",
     "Screenshots/Pasted image 20240925140711.png",
     "Screenshots/Pasted image 20240925140655.png",
     "Screenshots/Pasted image 20240925140615.png",
     "Screenshots/Pasted image 20240925131809.png",
-    "Screenshots/Pasted image 20240925131040.png",
     "CPTC Notes/Web Apps/Untitled.md",
     "CPTC Notes/Hacking Windows/Untitled.md",
     "README.md",
@@ -192,8 +189,6 @@
     "Linux Notes/Ethical Hacking Video/Installing gedit.md",
     "Linux Notes/Ethical Hacking Video/Common Network Commands.md",
     "Linux Notes/Ethical-Hacking-Notes/Notes/Installing & Updating Tools.md",
-    "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Users & Privileges.md",
-    "Linux Notes/Ethical-Hacking-Notes/Notes/Navigating the File System.md"
+    "Linux Notes/Ethical-Hacking-Notes/Video Timestamps.md"
   ]
 }
