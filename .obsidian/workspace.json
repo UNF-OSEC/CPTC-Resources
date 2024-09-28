@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7d2c004549feec4c",
@@ -148,7 +147,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a092e4d860f8d0a3",
+  "active": "4a33694746edb725",
   "lastOpenFiles": [
     "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
     "CPTC Notes/General Knowledge/What is CPTC - Edgar.md",
