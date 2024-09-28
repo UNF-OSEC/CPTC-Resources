@@ -11,8 +11,12 @@
             "id": "a092e4d860f8d0a3",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -44,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nmap",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -83,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
                 "collapseAll": false,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -99,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -120,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md"
+              }
             }
           }
         ],
@@ -143,12 +150,12 @@
   },
   "active": "a092e4d860f8d0a3",
   "lastOpenFiles": [
+    "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
+    "CPTC Notes/General Knowledge/What is CPTC - Edgar.md",
     "Untitled 1.canvas",
     "2024-09-26.md",
     "Untitled.canvas",
     "Notes/Linux Notes/Web Application Penetration Test.md",
-    "CPTC Notes/General Knowledge/Getting Started in Pen Pen Testing - Edgar.md",
-    "CPTC Notes/General Knowledge/What is CPTC, Intro to Pen - Edgar.md",
     "Linux Notes/Web Application Penetration Test.md",
     "Pasted image 20240925170924.png",
     "Pasted image 20240925170143.png",

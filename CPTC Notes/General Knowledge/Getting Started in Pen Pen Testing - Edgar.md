@@ -1,4 +1,4 @@
-
+Reference: https://academy.hackthebox.com/module/details/77
 # Info-sec Overview
 
 Cyber Security, or **Information Security** (infosec) has multiple domains, some but not all include:
@@ -324,3 +324,494 @@ Web servers usually are open for the public, and so if they have any vulnerabili
 
 # Basic Tools
 
+There are many tools that need to be learned to be a proper penetration tester. Some of these include:
+- SSH
+- Netcat
+- Tmux
+- Vim
+
+## Using SSH
+**Secure Shell (SSH)** is a network protocol that runs on port **22** by default and provides users such as system administrators a *secure way to access a computer remotely*.
+- Can be configured with password authentication, or password less using a **public-key** authentication using a **SSH public/private key pair**.
+- Can be used to remotely access systems on the same/different network, facilitate connections to resources in other networks using port forwarding/proxying, and upload/down files
+
+### SSH: Client-Server model
+To connect, you use an SSH client like **OpenSSH** to an SSH server. 
+- Possible attack scenario: You get the private key for a machine and can now SSH into their machine
+- Connect **more stable** than a reverse shell connect, and can be used as a "jump host" to enumerate and attack other hosts in a network, transfer tools, set up persistence, etc...
+## Connecting with SSH
+```
+ssh Bob@10.10.10.10
+```
+- **ssh**: Use the ssh command when you want too 
+- **Bob**: The username you are trying to connect to on the other device
+- **@** Separate the username and the IP
+- **10.10.10.10**: The IP address you are trying to connect to
+
+## Using Netcat
+**Netcat, ncat** or **nc**, is a network tool used for interacting with TPC/UDP ports. It is **primary used for connecting to shells.** It can also be used to:
+- Connect to any listening port and interact with the service running on that port
+	- SSH is programming to handle connections over port 22 to send all data and keys, we can connect to TPC port 22 with **netcat**:
+```
+netcat 10.10.10.10 22
+```
+- **netcat**: The program you are trying to run
+- **10.10.10.10**: The IP you are trying to connect to
+- **22**: The specific port you are looking for
+**Output:**
+```
+shell-session SSH-2.0-OpenSSH_8.4p1 Debian-3
+```
+- As seen above, the port 22 sent a message stating what service is running on it, in this case, **Open SSH**. 
+- This technique is called **Banner Grabbing**, helpful for quickly identifying what service is running on a particular port.
+- Can transfer files between machines.
+
+**Netcat** comes pre-installed in most Linux distros, and can be downloaded on windows. There is also a Windows alternative called **PowerCat**. 
+
+### Socat
+A similar network utility is called **socat**, containing a few features **netcat** does not support 
+- Forwarding ports 
+- Connecting to serial devices 
+- **Upgrade a shell to a fully interactive TTY**
+- Very useful in pentesting
+
+## Using Tmux
+**Tmux** is a terminal multiplexer. It is very useful for expanding a Linux terminal's features. Examples:
+- Multiple windows
+
+**Installing tmux**:
+```
+sudo apt install tmux -y
+```
+- **sudo** for elevated access
+- **apt** for package manager
+- **install** for install programs
+- **tmux** name of package 
+- **-y** for confirming the download
+
+### tmux window
+To open **tmux**, just type tmux in the command line.
+tmux has **commands** you can use, they will start with **CTRL + B** and then some input, like:
+- **C**: Opens a new window
+	- You can see the numbered window on the bottom, to switch to different windows
+- **#**: Select the number of the window you want to switch to
+- **SHIFT + %**: Split window horizontally
+- **SHIFT + "**: Split window vertically
+- **left/right/up/down arrows**: Switch to different windows
+
+## Using Vim
+**Vim** is a very useful text editor for writing code or editing text files. One of the best reasons for using it is it relies **entirely on the keyboard**, so it increases your speed not using a mouse. There are specific keys you must enter, there are many, but here are some examples:
+- **"I"**: Insert, this is the "edit" mode that lets you add/remove text
+- "**esc**": Gets out of Inset mode, and back to **normal mode** or read-only mode
+- **"x"**: Cut a single character
+- **"dw"**: Cut a single word
+- **"dd"**: Cut a full line
+- **"yw"**: Copy a word
+- **"yy"**: Copy a full line
+- **"p"**: Paste
+- **":w (file name)"**: Save a file with a name, if the file name is already set, you can save/quit with **:wq**
+- **":q"**: Exit file, add !(:q!) to exit without saving
+- **":#"**: Go to line number #
+**Tip**: #(command) multiplies a command # number of times. Ex: **"4yw"** runs yw 4 times 
+
+# Service Scanning 
+
+## Entering our first machine
+
+Now it is time to start exploring a machine. Some things you must identify:
+- The operating system
+- Available services that might be running
+- Machines that specialize in specific services are called **servers** while non-specific machines tend to be called **workstations**
+**Goal**: Instead of performing the actions expected as part of the service, we are interested to see if we can **coerce the service into performing some unintended action that supports our objects**, such as, executing a command of our choosing.
+
+### Connecting to a service
+A computers have an **IP address**, and all the services they run use a **port number**. To access what we want, we will need to get both of these numbers. It would take forever to manually exam all 65,535 ports, so we will be using a special method. One of the best ways to start working on this is by using a network mapping tool called **Nmap**
+
+### Scanning with Nmap
+We will be starting with a basic scan. When using **Nmap**, you can call the command, followed by an IP, to find the open ports like seen below:
+```Input
+nmap 10.129.42.253
+```
+```Output
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-25 16:07 EST
+Nmap scan report for 10.129.42.253
+Host is up (0.11s latency).
+Not shown: 995 closed ports
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+80/tcp  open  http
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+Nmap done: 1 IP address (1 host up) scanned in 2.19 seconds
+```
+*As seen above, we can see what ports are shown (TPC/UDP), what state they are in, and what service they are running. At times you may get more or less, information, so you must learn how to use Nmap to its best ability* 
+**States**:
+- Open: The port is open to the public
+- Closed: No one can access the port 
+- Filtered: Closed or unknown (Can happen when being blocked with a firewall)
+**Common Ports and Their Respective Machine** :
+- 22: SSH (Linux)
+- 80: HTTP
+- 3389: Report Desktop Services (Windows Machine)
+
+### Nmap Arguments
+When running commands, you can add **arguments** that modify it, allowing you to make it work in different situations. Some include:
+- -sC: Try and obtain more detailed information
+- -sV: Version scan, find what services are running on the target system. (protocol, application name, and version)
+- -p-: Scan **all** 65,535 TPC ports. (This may take a while)
+```Input
+nmap -sV -sC -p- 10.129.42.252
+```
+```Output
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-25 16:18 EST
+Nmap scan report for 10.129.42.253
+Host is up (0.11s latency).
+Not shown: 65530 closed ports
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_drwxr-xr-x    2 ftp      ftp          4096 Feb 25 19:25 pub
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.14.2
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp  open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+80/tcp  open  http        Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: PHP 7.4.3 - phpinfo()
+139/tcp open  netbios-ssn Samba smbd 4.6.2
+445/tcp open  netbios-ssn Samba smbd 4.6.2
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_nbstat: NetBIOS name: GS-SVCSCAN, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2021-02-25T21:21:51
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 233.68 seconds
+```
+*Some things to keep in mind*:
+- **Version** section adding, giving the service version, and the operating system if possible.
+	- Above shows this is a Linux(Ubuntu) machine
+- It took **much longer** when scanning all the ports, but a lot more information was found
+
+### Nmap Scripts 
+When running the **-sC** argument, it will run multiple default scripts against the target. You can also run specific scripts if needed. Example:
+- For a Citrix company, you may want to run Citrix specific scripts. 
+To find scripts relates to specific companies, you can look in the `scripts/` directory in Nmap using the **locate** command. 
+```Input
+locate scripts/citrix
+```
+```Output
+/usr/share/nmap/scripts/citrix-brute-xml.nse
+/usr/share/nmap/scripts/citrix-enum-apps-xml.nse
+/usr/share/nmap/scripts/citrix-enum-apps.nse
+/usr/share/nmap/scripts/citrix-enum-servers-xml.nse
+/usr/share/nmap/scripts/citrix-enum-servers.nse
+```
+*As you can see, there are multiple scripts for Citrix, that relate to different domains.*
+
+The format for running a Nmap script is:
+`nmap --script <script name> -port<port> <host>`
+- Scripts enhance scans' functionality and help greatly
+
+## Attacking Network Services 
+Now we will look at multiple ways of attack services
+
+### Banner Grabbing 
+**Banner Grabbing** is very useful when trying to figure out what kind of service is running, in a short amount of time.
+*This can be done using nmap by using the format:*
+`nmap -sV --script=banner <target>`
+*You can also use Netcat or nc:*
+```Input
+nc -nv 10.129.42.253 21
+```
+```Output
+(UNKNOWN) [10.129.42.253] 21 (ftp) open
+220 (vsFTPd 3.0.3)
+```
+*We now know the target is running a FTP server on port 21, with the version 3.0.3*
+*Nmap Version of code above:*
+`nmap -sV --script=banner -p21 10.10.10.0/24`
+
+## FTP
+**File Transfer Protocol (FTP)** is a standard protocol that should be learned by everyone. Some information from the Nmap scan below shows the version, and that anonymous authentication is enabled, and that a **pub** directory is available
+```Input
+nmap -sC -sV -p21 10.129.42.253
+```
+```Output
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-12-20 00:54 GMT
+Nmap scan report for 10.129.42.253
+Host is up (0.081s latency).
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_drwxr-xr-x    2 ftp      ftp          4096 Dec 19 23:50 pub
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.14.2
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+Service Info: OS: Unix
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.78 seconds
+```
+
+### Connecting to FTP
+Lets try to connect to the service using the **ftp** command-line utility 
+```Input
+ftp -p 10.129.42.253
+```
+```shell-session
+Connected to 10.129.42.253.
+220 (vsFTPd 3.0.3)
+Name (10.129.42.253:user): anonymous
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+
+ftp> ls
+227 Entering Passive Mode (10,129,42,253,158,60).
+150 Here comes the directory listing.
+drwxr-xr-x    2 ftp      ftp          4096 Feb 25 19:25 pub
+226 Directory send OK.
+
+ftp> cd pub
+250 Directory successfully changed.
+
+ftp> ls
+227 Entering Passive Mode (10,129,42,253,182,129).
+150 Here comes the directory listing.
+-rw-r--r--    1 ftp      ftp            18 Feb 25 19:25 login.txt
+226 Directory send OK.
+
+ftp> get login.txt
+local: login.txt remote: login.txt
+227 Entering Passive Mode (10,129,42,253,181,53).
+150 Opening BINARY mode data connection for login.txt (18 bytes).
+226 Transfer complete.
+18 bytes received in 0.00 secs (165.8314 kB/s)
+
+ftp> exit
+221 Goodbye.
+```
+**Notes on above**:
+- First the user logged in using the **anonymous** option, since the nmap scan showed it was allowed
+- They then used **ls** to show the files available, and saw there was a **pub** directory, they travelled into it using **cd** and saw a `login.txt` file
+- They then used the **get** command to download the file to their local computer
+- They logged out with **exit**
+- Once back on their machine, they looked at the contents of the file and saw the credentials of the admin account
+
+## SMB
+**Server Message Block (SMB)** is a popular protocol on Windows machines that provide many **vectors (Methods)** for **vertical and lateral movement (The ability to get access to computers and travel on them to get even more access)** Some examples include:
+- Sensitive data 
+- credentials 
+- network file shares 
+- vulnerable to RCE exploits such as [External Blue](https://www.avast.com/c-eternalblue)
+
+Nmap has many scripts for SMB as well, such as [smb-os-discovery.nse](https://nmap.org/nsedoc/scripts/smb-os-discovery.html), that interacts with the **SMB** service to extract the reported operating system version.
+```Input
+nmap --script smb-os-discovery.nse -p445 10.10.10.40
+```
+```Outout
+Starting Nmap 7.91 ( https://nmap.org ) at 2020-12-27 00:59 GMT
+Nmap scan report for doctors.htb (10.10.10.40)
+Host is up (0.022s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+
+Host script results:
+| smb-os-discovery: 
+|   OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+|   Computer name: CEO-PC
+|   NetBIOS computer name: CEO-PC\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2020-12-27T00:59:46+00:00
+
+Nmap done: 1 IP address (1 host up) scanned in 2.71 seconds
+```
+**Things learned**
+- The target is running Windows 7
+- It might be vulnerable to the Eternal Blue exploit 
+To learn more, we will run the **-A** argument that gets much more information on the port
+```Input
+nmap -A -p445 10.129.42.253
+```
+```Output
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-25 16:29 EST
+Nmap scan report for 10.129.42.253
+Host is up (0.11s latency).
+
+PORT    STATE SERVICE     VERSION
+445/tcp open  netbios-ssn Samba smbd 4.6.2
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Linux 2.6.32 (95%), Linux 3.1 (95%), Linux 3.2 (95%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (94%), ASUS RT-N56U WAP (Linux 3.4) (93%), Linux 3.16 (93%), Adtran 424RG FTTH gateway (92%), Linux 2.6.39 - 3.2 (92%), Linux 3.1 - 3.2 (92%), Linux 3.2 - 4.9 (92%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+
+Host script results:
+|_nbstat: NetBIOS name: GS-SVCSCAN, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2021-02-25T21:30:06
+|_  start_date: N/A
+
+TRACEROUTE (using port 445/tcp)
+HOP RTT       ADDRESS
+1   111.62 ms 10.10.14.1
+2   111.89 ms 10.129.42.253
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.72 seconds
+```
+**Information Gathered**:
+- Runs a Linux Kernel, Samba version 4.6.2
+- Hostname is GS-SVCSCAN
+
+## Shares
+
+**SMB** allows users and admins to share folders and make them accessible remotely by other users. These shares have files that may contain:
+- Sensitive information
+- passwords 
+- etc...
+To interact with SMB, we can use **smbclient**, and add the **-L** flag(argument) to retrieve a list of available shares on the remote host, and **-N** suppresses the password prompt.
+```Input
+smbclient -N -L \\\\10.129.42.253
+```
+```Output
+	Sharename       Type      Comment
+	---------       ----      -------
+	print$          Disk      Printer Drivers
+	users           Disk      
+	IPC$            IPC       IPC Service (gs-svcscan server (Samba, Ubuntu))
+SMB1 disabled -- no workgroup available
+```
+**Information Gathered**
+- A non-default share called **users**
+We will try to connect as a guest user
+```Input
+smbclient \\\\10.129.42.253\\users
+```
+```Output
+Enter WORKGROUP\users's password: 
+Try "help" to get a list of possible commands.
+
+smb: \> ls
+NT_STATUS_ACCESS_DENIED listing \*
+
+smb: \> exit
+```
+**Information Gathered**
+- The guest does not have permission
+**Now lets try using the user bob (bob:Welcome1)**
+```Input
+smbclient -U bob \\\\10.129.42.253\\users
+```
+```Output
+Enter WORKGROUP\bob's password: 
+Try "help" to get a list of possible commands.
+
+smb: \> ls
+  .                                   D        0  Thu Feb 25 16:42:23 2021
+  ..                                  D        0  Thu Feb 25 15:05:31 2021
+  bob                                 D        0  Thu Feb 25 16:42:23 2021
+
+		4062912 blocks of size 1024. 1332480 blocks available
+		
+smb: \> cd bob
+
+smb: \bob\> ls
+  .                                   D        0  Thu Feb 25 16:42:23 2021
+  ..                                  D        0  Thu Feb 25 16:42:23 2021
+  passwords.txt                       N      156  Thu Feb 25 16:42:23 2021
+
+		4062912 blocks of size 1024. 1332480 blocks available
+		
+smb: \bob\> get passwords.txt 
+getting file \bob\passwords.txt of size 156 as passwords.txt (0.3 KiloBytes/sec) (average 0.3 KiloBytes/sec)
+```
+**Information Gathered**
+- Login for bob worked
+- bob has permission to view files 
+- we gained access to the password file
+- we used **get** to download the file
+
+## SNMP
+**SNMP Community strings** provide information and statistics about a router or device, which can help in gaining access to it. 
+**Public:**
+```Input
+snmpwalk -v 2c -c public 10.129.42.253 1.3.6.1.2.1.1.5.0
+```
+```Output
+iso.3.6.1.2.1.1.5.0 = STRING: "gs-svcscan"
+```
+**Private:**
+```Input
+snmpwalk -v 2c -c private  10.129.42.253 
+```
+```Output
+Timeout: No Response from 10.129.42.253
+```
+
+You can use a tool called **onesixtyone** to brute force community string names by using a dictionary file of common community strings such as the `dict.txt` file contained in the github.
+```Input
+onesixtyone -c dict.txt 10.129.42.254
+```
+```Output
+Scanning 1 hosts, 51 communities
+10.129.42.254 [public] Linux gs-svcscan 5.4.0-66-generic #74-Ubuntu SMP Wed Jan 27 22:54:38 UTC 2021 x86_64
+```
+
+## Practice Scenario
+Based on what you learned, try to get into the system.
+**Target System:** 10.129.16.10
+
+*Perform an Nmap scan of the target. What does Nmap display as the version of the service running on port 8080?*
+```
+nmap -sV -p8080 10.129.16.10
+```
+- Look for the **service** tab
+*Perform an Nmap scan of the target and identify the non-default port that the telnet service is running on.*
+```
+nmap -sV 10.129.16.10
+```
+- Look for the **port** tab
+*List the SMB shares available on the target host. Connect to the available share as the bob user. Once connected, access the folder called 'flag' and submit the contents of the flag.txt file.*
+```
+smbclient -U bob \\\\10.129.42.253\\users
+```
+- Find flag with **ls and cd**
+- Download using **get**
+
+# Web Enumeration
+https://academy.hackthebox.com/module/77/section/728
