@@ -814,4 +814,110 @@ smbclient -U bob \\\\10.129.42.253\\users
 - Download using **get**
 
 # Web Enumeration
-https://academy.hackthebox.com/module/77/section/728
+Web services sometimes are the only point of attack on very secure servers. We will learn about the possible tools you can use to improve your pen testing.
+
+## Gobuster
+To find hidden files or directories, use **ffuf** or **GoBuster**. This can help us find pages containing sensitive data to access the web server.
+
+### Directory/File Enumeration
+**Gobuster** can be used for plenty of other things as well, including: DNS, vhost, directory brute-forcing, and more. We will focus on directory (and file) brute-forcing modes using the switch **dir**. 
+```Input
+gobuster dir -u http://10.10.10.121/ -w /usr/share/seclists/Discovery/Web-Content/common.txt
+```
+```Output
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://10.10.10.121/
+[+] Threads:        10
+[+] Wordlist:       /usr/share/seclists/Discovery/Web-Content/common.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Timeout:        10s
+===============================================================
+2020/12/11 21:47:25 Starting gobuster
+===============================================================
+/.hta (Status: 403)
+/.htpasswd (Status: 403)
+/.htaccess (Status: 403)
+/index.php (Status: 200)
+/server-status (Status: 403)
+/wordpress (Status: 301)
+===============================================================
+2020/12/11 21:47:46 Finished
+===============================================================
+```
+**HTTP Codes:**
+- 200s: SUCCESS
+- 300s: REDIRECT
+- 400s: ACCESS DENIED
+Above showed we have access to /index.php, so we will use it to gain some access
+
+### DNS Subdomain Enumeration 
+Subdomains can be important as they may host important resources like admin panels or applications. **GoBuster** can be used to find available subdomains using the **dns** flag.
+**Cloning the SecLists Github for useful lists for fuzzing/exploitation**
+```shell-session
+git clone https://github.com/danielmiessler/SecLists
+```
+```shell-session
+sudo apt install seclists -y
+```
+**Following Steps**:
+- Add a DNS Server, using 1.1.1.1 to **/etc/resolv.conf** file. 
+- The goal is to target the domain **inlanefreight.com**
+```Input
+gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
+```
+```Output
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Domain:     inlanefreight.com
+[+] Threads:    10
+[+] Timeout:    1s
+[+] Wordlist:   /usr/share/SecLists/Discovery/DNS/namelist.txt
+===============================================================
+2020/12/17 23:08:55 Starting gobuster
+===============================================================
+Found: blog.inlanefreight.com
+Found: customer.inlanefreight.com
+Found: my.inlanefreight.com
+Found: ns1.inlanefreight.com
+Found: ns2.inlanefreight.com
+Found: ns3.inlanefreight.com
+===============================================================
+2020/12/17 23:10:34 Finished
+===============================================================
+```
+
+## Web Enumeration Tips 
+Tips to better pen test web apps 
+
+### Banner Grabbing / Web Server Headers
+Getting web server headers is great for finding out the kinds of servers a machine may be running. A great to get this header is by using the cURL commnad. 
+```Input
+curl -IL https://www.inlanefreight.com
+```
+```Output
+HTTP/1.1 200 OK
+Date: Fri, 18 Dec 2020 22:24:05 GMT
+Server: Apache/2.4.29 (Ubuntu)
+Link: <https://www.inlanefreight.com/index.php/wp-json/>; rel="https://api.w.org/"
+Link: <https://www.inlanefreight.com/>; rel=shortlink
+Content-Type: text/html; charset=UTF-8
+```
+Another useful tool is **EyeWitness**, used to take screenshots of target web apps, fingerprint them, and identify possible default credentials
+
+### Whatweb
+Gives us information and versions of web servers. Helps automate web enumeration
+```Input
+whatweb 10.10.10.121
+```
+```Output
+http://10.10.10.121 [200 OK] Apache[2.4.41], Country[RESERVED][ZZ], Email[license@php.net], HTTPServer[Ubuntu Linux][Apache/2.4.41 (Ubuntu)], IP[10.10.10.121], Title[PHP 7.4.3 - phpinfo()]
+```
+
+## Certificates
+Another potential source of information if HTTPS is in use. 
